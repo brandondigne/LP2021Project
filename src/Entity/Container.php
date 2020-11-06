@@ -30,7 +30,7 @@ class Container
     private $container_model;
 
     /**
-     * @ORM\ManyToOne(targetEntity=ContainerShip::class, inversedBy="containers")
+     * @ORM\ManyToOne(targetEntity=Containership::class, inversedBy="containers")
      */
     private $containership;
 
@@ -73,12 +73,12 @@ class Container
         return $this;
     }
 
-    public function getContainership(): ?ContainerShip
+    public function getContainership(): ?Containership
     {
         return $this->containership;
     }
 
-    public function setContainership(?ContainerShip $containership): self
+    public function setContainership(?Containership $containership): self
     {
         $this->containership = $containership;
 
