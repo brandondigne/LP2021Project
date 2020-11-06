@@ -3,18 +3,18 @@
 
 namespace App\Normalizer;
 
-use App\Entity\Container;
+use App\Entity\ContainerProduct;
 use Symfony\Component\Serializer\Normalizer\ContextAwareNormalizerInterface;
 
-class ContainerNormalizer implements ContextAwareNormalizerInterface
+class ContainerProductNormalizer implements ContextAwareNormalizerInterface
 {
     public function supportsNormalization($data, string $format = null, array $context = [])
     {
-        return $data instanceof Container;
+        return $data instanceof ContainerProduct;
     }
 
     /**
-     * @param Container $object
+     * @param ContainerProduct $object
      *
      * @return array|\ArrayObject|bool|float|int|string|null
      */
@@ -22,10 +22,9 @@ class ContainerNormalizer implements ContextAwareNormalizerInterface
     {
         $data = [
             'id' => $object->getId(),
-            'color' => $object->getColor(),
-            'container_model' => $object->getContainerModel(),
-            'containership' => $object->getContainership(),
-            'container_products' => $object->getContainerProducts(),
+            'container_id' => $object->getContainer(),
+            'product_id' => $object->getProduct(),
+            'quantity' => $object->getQuantity(),
         ];
 
 
